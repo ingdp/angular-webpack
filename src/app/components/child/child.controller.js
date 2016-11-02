@@ -7,8 +7,8 @@ export default class ChildController {
         }
     }
 
-    setStringToShow(str) {
-        console.log(str)
-        this.stringApi({str})
+    customFilter(actual, expected) {
+        console.log(actual, expected)
+        return actual < expected;
     }
 }

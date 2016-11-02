@@ -1,5 +1,11 @@
 <div>
-    <input type="text" ng-model="stringToSet" ng-keyup="$ctrl.setStringToShow(stringToSet)" placeholder="filter (to bedone)">
-    {{$ctrl.beers | json}}
+    Abv: <input type="text" ng-model="beerType.abv" ng-keyup="$ctrl.setStringToShow(stringToSet)" placeholder="filter (to bedone)">
 
+    <div ng-repeat="beer in $ctrl.beers | filter:beerType:$ctrl.customFilter">
+        <strong>{{ beer.name }}</strong>
+        <br>
+        <span>{{ beer.abv }}</span>
+        <br>
+        <span>{{ beer.description }}</span>
+    </div>
 </div>
