@@ -6,7 +6,7 @@ const childComponent = {
     template,
     bindings: {
         stringApi: '&',
-        stringToShow: '<',
+        beers: '<',
     },
 }
 

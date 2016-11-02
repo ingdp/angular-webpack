@@ -1,12 +1,9 @@
 export default class ChildController {
-    constructor($scope) {
+    constructor() {
         let self = this;
-        self.$onChanges= (changes)=>{
-            console.info('changed', changes)
 
-            if(changes.stringToShow.currentValue){
-                console.info('changed', changes.stringToShow.currentValue)
-            }
+        self.$onChanges = (changes)=> {
+            console.info('changed', changes)
         }
     }
 

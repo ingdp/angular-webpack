@@ -1,9 +1,16 @@
 export default class AppRootController {
-    constructor() {
+    constructor(requestSrv) {
         console.log('AppRootController constructor');
-        this.exampleDataObj = {
+        let self = this;
+        self.exampleDataObj = {
             exampleStr: 'esempio',
         };
+        self.beerArr = [];
+        requestSrv.getAll().then(
+            (res)=> {
+                console.info(res)
+                self.beerArr = res;
+            });
     }
 
     resetData() {
