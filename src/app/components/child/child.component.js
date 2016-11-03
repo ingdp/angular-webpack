@@ -5,7 +5,6 @@ const childComponent = {
     controller,
     template,
     bindings: {
-        stringApi: '&',
         beers: '<',
     },
 }

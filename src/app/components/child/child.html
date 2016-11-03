@@ -1,11 +1,27 @@
-<div>
-    Abv: <input type="text" ng-model="beerType.abv" ng-keyup="$ctrl.setStringToShow(stringToSet)" placeholder="filter (to bedone)">
-
-    <div ng-repeat="beer in $ctrl.beers | filter:beerType:$ctrl.customFilter">
-        <strong>{{ beer.name }}</strong>
-        <br>
-        <span>{{ beer.abv }}</span>
-        <br>
-        <span>{{ beer.description }}</span>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="alert alert-success">
+            ABV:
+            <br>Minimo: {{minAbv}}<input type="range" min="2" max="12" step="0.1" ng-model="minAbv">
+            <br>Massimo: {{maxAbv}}<input type="range"  min="2" max="12" step="0.1" ng-model="maxAbv">
+        </div>
+        <div class="alert alert-info">
+            IBU:
+            <br>Minimo: {{minIbu}}<input type="range" min="0" max="100" ng-model="minIbu">
+            <br>Massimo: {{maxIbu}}<input type="range"  min="0" max="100" ng-model="maxIbu">
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <div class="list-group-item" ng-repeat="beer in $ctrl.beers | filter:$ctrl.customFilter(minAbv, maxAbv, minIbu, maxIbu)">
+                Nome: <strong>{{ beer.name }}</strong>
+                <br>
+                ABV: <span>{{ beer.abv }}%</span>
+                <br>
+                IBU: <span>{{ beer.ibu }}</span>
+                <br>
+                <i>{{ beer.description }}</i>
+            </div>
+        </div>
     </div>
 </div>
